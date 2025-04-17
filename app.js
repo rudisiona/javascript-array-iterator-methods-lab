@@ -82,7 +82,7 @@ const inventors = [
     { name: 'Matt', year: 1970 },
     { name: 'Wes', year: 2015 },
   ];
-  
+              
   const comments = [
     { text: 'Love this!', id: 523423 },
     { text: 'Super good', id: 823423 },
@@ -94,33 +94,13 @@ const inventors = [
 
 // Exercise 1: Array.prototype.filter()
 
-// Complete the exercise in the space below:
 let veryOldInventors = inventors.filter((inventor) => {
     return inventor.year >= 1500 && inventor.year < 1600;
   });
     
 
 
-
-/*
-Exercise 2: Array.prototype.map()
-
-Map the array of inventors into a new array. This new array should only contain
-objects with the inventors' first and last names.
-
-- For each inventor, return an object in this format: 
-  { first: "First Name", last: "Last Name" }.
-- The new array should be a collection of these objects, each representing an 
-  inventor with only their first and last names.
-
-Hint: Return a new object literal from the callback that looks like:
-      { first: "First Name", last: "Last Name" }
-*/
-
-
-
-// Complete the exercise in the space below:
-
+// Exercise 2: Array.prototype.map()
 
 const inventorNames = inventors.map(inventor => {
     return {
@@ -129,16 +109,11 @@ const inventorNames = inventors.map(inventor => {
     }
 })
 
-/*
-Exercise 3: Array.prototype.sort()
 
-Sort the inventors by birth date in ascending order (from those born furthest in
-the past to those born most recently).
-*/
 
-let sortedByBirthYear = [];
+// Exercise 3: Array.prototype.sort()
 
-// Complete the exercise in the space below:
+let sortedByBirthYear = inventors.sort((a, b) => a.year - b.year);
 
 // Check your work:
 console.log('Exercise 3 my result: ', sortedByBirthYear);
@@ -158,3 +133,119 @@ console.log('Exercise 3 correct result: ', [
 ]);
 
 
+
+// Exercise 4: Array.prototype.find()
+
+let inventorNamedAda = inventors.find((inventor) => {
+  return inventor.first === 'Ada';
+}); 
+
+// // Check your work:
+console.log('Exercise 4 my result: ', inventorNamedAda);
+console.log('Exercise 4 correct result: ', {
+  first: 'Ada',
+  last: 'Lovelace',
+  year: 1815,
+  passed: 1852,
+});
+
+
+
+// Exercise 5: Array.prototype.map()
+
+let firstLast = people.map(name => {
+  const [last, first] = name.split(', ');
+  return`${first} ${last}`
+})
+
+// Check your work:
+console.log('Exercise 5 my result: ', firstLast);
+// console.log('Exercise 5 correct result: ', [
+//   'Carl Becker',
+//   'Samuel Beckett',
+//   'Mick Beddoes',
+//   'Henry Beecher',
+//   'Ludwig Beethoven',
+//   'Menachem Begin',
+//   'Hilaire Belloc',
+//   'Saul Bellow',
+//   'Robert Benchley',
+//   'Peter Benenson',
+//   'David Ben-Gurion',
+//   'Walter Benjamin',
+//   'Tony Benn',
+//   'Chester Bennington',
+//   'Leana Benson',
+//   'Silas Bent',
+//   'Lloyd Bentsen',
+//   'Ric Berger',
+//   'Ingmar Bergman',
+//   'Luciano Berio',
+//   'Milton Berle',
+//   'Irving Berlin',
+//   'Eric Berne',
+//   'Sandra Bernhard',
+//   'Yogi Berra',
+//   'Halle Berry',
+//   'Wendell Berry',
+//   'Erin Bethea',
+//   'Aneurin Bevan',
+//   'Ken Bevel',
+//   'Joseph Biden',
+//   'Ambrose Bierce',
+//   'Steve Biko',
+//   'Josh Billings',
+//   'Frank Biondo',
+//   'Augustine Birrell',
+//   'Elk Black',
+//   'Robert Blair',
+//   'Tony Blair',
+//   'William Blake',
+// ]);
+
+
+
+// Exercise 6: Array.prototype.some()
+
+let isAdultPresent = devs.some((dev) => {
+  return dev.year <= 2007
+ })  
+
+// Check your work:
+console.log('Exercise 6 my result: ', isAdultPresent);
+console.log('Exercise 6 correct result: ', true);
+
+
+
+// Exercise 7: Array.prototype.every()
+
+let isEveryone19OrOlder = devs.every((dev) => {
+  return dev.year <= 2006
+});
+
+// Check your work:
+console.log('Exercise 7 my result: ', isEveryone19OrOlder);
+console.log('Exercise 7 correct result: ', false);
+
+
+
+// Exercise 8: Array.prototype.find()
+
+let commentById = comments.find(comment => comment.id === 823423);
+
+// Check your work:
+console.log('Exercise 8 my result: ', commentById);
+console.log('Exercise 8 correct result: ', { text: 'Super good', id: 823423 });
+
+
+
+// Exercise 9: Array.prototype.findIndex()
+
+let idx = comments.findIndex((comment) => {
+  return comment.id === 123523
+})
+
+
+// Check your work:
+console.log('Exercise 9 my result: ', idx);
+console.log('Exercise 9 correct result: ', 3);
