@@ -140,7 +140,7 @@ let inventorNamedAda = inventors.find((inventor) => {
   return inventor.first === 'Ada';
 }); 
 
-// // Check your work:
+// Check your work:
 console.log('Exercise 4 my result: ', inventorNamedAda);
 console.log('Exercise 4 correct result: ', {
   first: 'Ada',
@@ -249,3 +249,44 @@ let idx = comments.findIndex((comment) => {
 // Check your work:
 console.log('Exercise 9 my result: ', idx);
 console.log('Exercise 9 correct result: ', 3);
+
+
+
+
+
+// Level Up exercise 1: Array.prototype.reduce()
+
+let totalYearsLived = inventors.reduce((accumulator, inventor) => {
+  const lifespan = inventor.passed - inventor.year; 
+  return accumulator + lifespan; 
+}, 0);
+
+// Complete the exercise in the space below:
+
+// Check your work:
+console.log('Level Up 1 my result: ', totalYearsLived);
+console.log('Level Up 1 correct result: ', 861);
+
+
+
+// Level Up exercise 2: Array.prototype.reduce()
+
+let travelMethodCounts = travelMethods.reduce((acc, method) => {
+      acc[method] = (acc[method] || 0)  + 1;
+      return acc;
+}, {});
+
+
+
+// Check your work:
+console.log('Level Up 2 my result: ', travelMethodCounts);
+console.log('Level Up 2 correct result: ', {
+  car: 5,
+  truck: 3,
+  bike: 2,
+  walk: 2,
+  van: 2,
+});
+
+
+
